@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 1vw;
+}
+
+
+body {
+  color: $defaultColor;
+  background-color: $bgColor;
+  h1,h2 {
+    font-size: 3em;
+    font-weight: bold;
+    font-family: $baseFont;
+    color: $emFontColor;
+    &.main {
+      font-size: 10vh;
+      color: $baseFontColor;
+    }
+  }
+  h3 {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: $baseFont;
+    color: $emFontColor;
+    padding: 1em 0;
+  }
+  h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: $baseFont;
+    color: $emFontColor;
+    padding: 1em 0;
+  }
+  p {
+    color: $baseFontColor;
+    font-size: 1.3rem;
+    font-family: $txtFontNormal;
+    line-height: 1.5em;
+    margin: 2em auto;
+
+  }
+  .code {
+    border: solid $emFontColor 1px;
+    background-color: $bgCodeColor;
+    padding: 1em;
+    color: $emFontColor;
+    font-family: $codeFont;
+    font-size: 1.2em;
+    em {
+      color:#c4f8e9;
+      font-style: normal;
+    }
+    @for $i from 1 to 8 {
+      .indent-#{$i} {
+        padding-left: $i*1em;
+      }
+    }
+  }
+
+}
+ul {
+  list-style-type: none;
+
+  li {
+    position: relative;
+    font-size: 1.8em;
+    font-family: $baseFont;
+    color: $codeColor;
+    padding-left: 1em;
+    &::before {
+      content: "";
+      display: block;
+      width: .5em;
+      height: .5em;
+      background-color: $singleAttrColor;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 30%;
+    }
+  }
+}
+
+section {
+  height: 100vh;
+  padding: 3em;
+  background-color: $bgColor;
+  border: solid $emFontColor 0.2em;
+  border-top: none;
+  &:first-child {
+    border-top: solid $emFontColor 0.2em;
+    background-image: url("/assets/images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center 26%;
+  }
+  .full-height {
+    min-height: 100%;
+  }
+  .half-height {
+    min-height: 50%;
+  }
+  .quarter-height {
+    min-height: 25%;
+  }
+}
+
+.jumbo {
+  background-color: transparentize($bgCodeColor,.2);
+}
+
+code {
+  color: $codeColor;
+  display: block;
+  .attr {
+    color:$attrColor;
+  }
+  .val {
+    color: $valColor;
+  }
+  .single-attr {
+    color: $singleAttrColor;
+  }
+  &.comment {
+    &::before{
+      content: "<";
+      display: inline;
+      color: $commColor !important;
+    }
+    &::after{
+      content: ">";
+      display: inline;
+      color: $commColor !important;
+    }
+    span {
+      color: $commColor !important;
+    }
+  }
+  &::before{
+    content: "<";
+    display: inline;
+  }
+  &::after{
+    content: ">";
+    display: inline;
+  }
+  &.comment {
+
+  }
+}
